@@ -14,7 +14,6 @@ describe('Create an order', () => {
         await browser.url('/');
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
         // Clicking the Supportive Plan
-        const supportiveButton = await $(page.supportiveButton);
         await page.selectSupportPlan();
     });
 
@@ -23,7 +22,6 @@ describe('Create an order', () => {
         await browser.url('/');
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
         // Clicking the Supportive Plan
-        const supportiveButton = await $(page.supportiveButton);
         await page.selectSupportPlan();
         // Saving the phone number
         const phoneNumber = helper.getPhoneNumber("+1");
@@ -36,7 +34,6 @@ describe('Create an order', () => {
         await browser.url('/');
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
         // Clicking the Supportive Plan
-        const supportiveButton = await $(page.supportiveButton);
         await page.selectSupportPlan();
         // Saving the phone number;
         const phoneNumber = helper.getPhoneNumber("+1");
@@ -52,7 +49,6 @@ describe('Create an order', () => {
         await browser.url('/');
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
         // Clicking the Supportive Plan
-        const supportiveButton = await $(page.supportiveButton);
         await page.selectSupportPlan();
         // Saving the phone number
         const phoneNumber = helper.getPhoneNumber("+1");
@@ -62,7 +58,6 @@ describe('Create an order', () => {
         const creditCardNumber = helper.generateCardNumber();
         await page.addPaymentInfo(creditCardNumber);
         // Send the driver a message
-        const messageTheDriverButton = await $(page.messageTheDriverButton);
         await page.sendMessageToDriver();
         
     });
@@ -72,7 +67,6 @@ describe('Create an order', () => {
         await browser.url('/');
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
         // Clicking the Supportive Plan
-        const supportiveButton = await $(page.supportiveButton);
         await page.selectSupportPlan();
         // Saving the phone number
         const phoneNumber = helper.getPhoneNumber("+1");
@@ -82,7 +76,6 @@ describe('Create an order', () => {
         const creditCardNumber = helper.generateCardNumber();
         await page.addPaymentInfo(creditCardNumber);
         // Send the driver a message
-        const messageTheDriverButton = await $(page.messageTheDriverButton);
         await page.sendMessageToDriver();
         // Select blankets and hankerchief option
         const blanketButton = await $(page.blanketButton);
@@ -96,7 +89,6 @@ describe('Create an order', () => {
         await browser.url('/');
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
         // Clicking the Supportive Plan
-        const supportiveButton = await $(page.supportiveButton);
         await page.selectSupportPlan();
         // Saving the phone number
         const phoneNumber = helper.getPhoneNumber("+1");
@@ -106,13 +98,11 @@ describe('Create an order', () => {
         const creditCardNumber = helper.generateCardNumber();
         await page.addPaymentInfo(creditCardNumber);
         // Send the driver a message
-        const messageTheDriverButton = await $(page.messageTheDriverButton);
         await page.sendMessageToDriver();
         // Select blankets and hankerchief option
         const blanketButton = await $(page.blanketButton);
         await page.requestBlanket();
         // Ordering the ice creams
-        const plusIcecream = await $(page.plusIcecream);
         await page.orderIcecream();
         //reset
         await blanketButton.click();
@@ -126,7 +116,6 @@ describe('Create an order', () => {
         await browser.url('/');
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
         // Clicking the Supportive Plan
-        const supportiveButton = await $(page.supportiveButton);
         await page.selectSupportPlan();
         // Saving the phone number
         const phoneNumber = helper.getPhoneNumber("+1");
@@ -136,13 +125,10 @@ describe('Create an order', () => {
         const creditCardNumber = helper.generateCardNumber();
         await page.addPaymentInfo(creditCardNumber);
         // Send the driver a message
-        const messageTheDriverButton = await $(page.messageTheDriverButton);
         await page.sendMessageToDriver();
         // Select blankets and hankerchief option
-        const blanketButton = await $(page.blanketButton);
         await page.requestBlanket();
         // Ordering the ice creams
-        const plusIcecream = await $(page.plusIcecream);
         await page.orderIcecream();
         // Ordering the car
         const orderCarButton = await $(page.orderCarButton);

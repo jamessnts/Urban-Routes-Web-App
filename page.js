@@ -130,7 +130,6 @@ module.exports = {
         const initState = await blanketCheck.isSelected();
         expect (initState).toBe(false);
         await blanketButton.click();
-        await browser.pause(500);
         const finalState = await blanketCheck.isSelected();
         expect (finalState).toBe(true);
         
@@ -142,10 +141,7 @@ module.exports = {
         const plusIcecream = await $(this.plusIcecream);
         await plusIcecream.waitForDisplayed();
         await plusIcecream.click();
-        await browser.pause(500);
         await plusIcecream.click();
-        await browser.pause(500);
-
 
 
     }
