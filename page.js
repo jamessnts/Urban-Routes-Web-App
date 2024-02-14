@@ -4,13 +4,37 @@ module.exports = {
     toField: '#to',
     phoneNumberField: '#phone',
     codeField: '#code',
+    cardField: '#number',
+    cardCodeField: '.card-second-row #code',
+    
     // Buttons
     callATaxiButton: 'button=Call a taxi',
     phoneNumberButton: '//div[starts-with(text(), "Phone number")]',
     nextButton: 'button=Next',
     confirmButton: 'button=Confirm',
+    paymentMethodButton: '.pp-text',
+    addCardButton: 'div=Add card',
+    linkButton: 'button=Link',
+    supportiveButton: 'div=Supportive',
+    closePayWindow: '.payment-picker .close-button',
+    messageTheDriverButton: '#comment',
+    blanketButton: 'div.switch', 
+    plusIcecream: '.counter-plus',
+    minusIcecream: '.counter-minus',
+    orderCarButton: '.smart-button',
+    
     // Modals
     phoneNumberModal: '.modal',
+    carSearchModal: '.order-body',
+    
+
+    // Random
+    cardSigStrip: '.plc',
+    AddCardBox: '.section.active.unusual',
+    blanketCheck: '.switch-input',
+    icecreamValue: '.counter-value',
+    driverInfo: '.order-header-title',
+
     // Functions
     fillAddresses: async function(from, to) {
         const fromField = await $(this.fromField);
@@ -48,4 +72,83 @@ module.exports = {
         await codeField.setValue(code)
         await $(this.confirmButton).click()
     },
-};
+
+    selectSupportPlan: async function() {
+        //clicking the Supportive Plan button
+        const supportiveButton = await $(this.supportiveButton);
+        await supportiveButton.waitForDisplayed();
+        await supportiveButton.click();
+
+    },
+
+    addPaymentInfo: async function (creditCardNumber) {
+        //clicking the payment method
+        const paymentMethodButton = await $(this.paymentMethodButton);
+        await paymentMethodButton.waitForDisplayed();
+        await paymentMethodButton.click();
+        //clicking add card button
+        const addCardButton = await $(this.addCardButton);
+        await addCardButton.waitForDisplayed();
+        await addCardButton.click();
+        //adding the card number
+        const cardField = await $(this.cardField);
+        await cardField.waitForDisplayed();
+        await cardField.setValue(creditCardNumber);
+        //adding the cvv
+        const cardCodeField = await $(this.cardCodeField);
+        await cardCodeField.waitForDisplayed();
+        await cardCodeField.setValue(12);
+        //clicking the card strip
+        const cardSigStrip = await $(this.cardSigStrip);
+        await cardSigStrip.waitForDisplayed();
+        await cardSigStrip.click();
+        //clicking the link button
+        const linkButton = await $(this.linkButton);
+        await linkButton.waitForDisplayed();
+        await linkButton.click();
+        //closing the payment info window
+        const closePayWindow = await $(this.closePayWindow)
+        await closePayWindow.waitForDisplayed();
+        await closePayWindow.click();
+
+},
+
+    sendMessageToDriver: async function() {
+        //clicking the message button
+        const messageTheDriverButton = await $(this.messageTheDriverButton);
+        await messageTheDriverButton.waitForDisplayed();
+        await messageTheDriverButton.setValue("Hello there!");
+
+
+    },
+
+    requestBlanket: async function() {
+        //clicking the blankets and hankerchiefs selector
+        const blanketButton = await $(this.blanketButton);
+        await blanketButton.waitForDisplayed();
+        const blanketCheck = await $(this.blanketCheck);
+        const initState = await blanketCheck.isSelected();
+        expect (initState).toBe(false);
+        await blanketButton.click();
+        await browser.pause(500);
+        const finalState = await blanketCheck.isSelected();
+        expect (finalState).toBe(true);
+        
+
+    },
+
+    orderIcecream: async function() {
+        //adding ice cream
+        const plusIcecream = await $(this.plusIcecream);
+        await plusIcecream.waitForDisplayed();
+        await plusIcecream.click();
+        await browser.pause(500);
+        await plusIcecream.click();
+        await browser.pause(500);
+
+
+
+    }
+
+
+    };
