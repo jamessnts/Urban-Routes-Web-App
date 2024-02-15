@@ -188,7 +188,6 @@ describe('Create an order', () => {
         await page.sendMessageToDriver();
         expect (await(await $(page.messageTheDriverButton)).getValue()).toBe('Hello there!');
         // Select blankets and handkerchief option
-        const blanketButton = await $(page.blanketButton);
         await page.requestBlanket();
         const blanketCheck = await $(page.blanketCheck);
         const yesBlanket = await blanketCheck.isSelected();
