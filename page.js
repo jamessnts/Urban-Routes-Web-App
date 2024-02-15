@@ -34,6 +34,7 @@ module.exports = {
     blanketCheck: '.switch-input',
     icecreamValue: '.counter-value',
     driverInfo: '.order-header-title',
+    cardValue: 'div.pp-value',
 
     // Functions
     fillAddresses: async function(from, to) {
